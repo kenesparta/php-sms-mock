@@ -6,18 +6,34 @@ namespace App\Carrier;
 
 use App\Contact;
 use App\Call;
+use App\Exceptions\DialException;
 use App\Interfaces\CarrierInterface;
+use App\Services\ContactService;
+use App\Sms;
+use Exception;
 
 class LocalCarrier implements CarrierInterface
 {
-
+    /**
+     * @throws Exception
+     */
     public function dialContact(Contact $contact)
     {
-        // TODO: Implement dialContact() method.
+        if (!ContactService::validateNumber($contact->number())) {
+            throw new DialException('The number does not correct');
+        }
+        // TODO: Implement other dialContact() logic.
     }
 
-    public function makeCall(): Call
+    public function makeCall(): ?Call
     {
-        // TODO: Implement makeCall() method.
+        // TODO: Implement other makeCall() logic.
+        return Null;
+    }
+
+    public function sendSms(Sms $sms): ?Sms
+    {
+        // TODO: Implement other sendSms() logic.
+        return Null;
     }
 }

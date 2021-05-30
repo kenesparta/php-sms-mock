@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "mockery/mockery": "^1.4"
+        "mockery/mockery": "^1.4",
+        "twilio/sdk": "^6.24"
     },
     "autoload": {
         "psr-4": {

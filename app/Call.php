@@ -5,9 +5,7 @@ namespace App;
 
 class Call
 {
-	
-	function __construct()
-	{
-		# code...
-	}
+
+    public function __construct()
+    {}
 }

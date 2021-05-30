@@ -5,7 +5,7 @@ namespace App\Exceptions;
 
 use Exception;
 
-class EmptyNameException extends Exception
+class EmptyNumberException extends Exception
 {
 
 }
