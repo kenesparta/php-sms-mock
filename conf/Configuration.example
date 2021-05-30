@@ -1,0 +1,15 @@
+<?php
+
+namespace Configuration;
+
+class Configuration
+{   
+    public static function twilio(): array
+    {
+        return [
+            'account_sid' => '',
+            'auth_token' => '',
+            'twilio_number' => '+15005550006', // This is a common Twilio test FROM number for TESTS (it's free!)
+        ];
+    }
+}

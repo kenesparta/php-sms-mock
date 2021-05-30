@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62117216ca9c31c07d7bc97918a8901f",
+    "content-hash": "3a52a0ad45bf59f14d36dc3cee4f8a80",
     "packages": [
         {
             "name": "hamcrest/hamcrest-php",
@@ -253,6 +253,65 @@
                 }
             ],
             "time": "2020-11-10T18:47:58+00:00"
+        },
+        {
+            "name": "donatj/mock-webserver",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/donatj/mock-webserver.git",
+                "reference": "f440b543e85edd1c4b64094b32ad70451d97a228"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/donatj/mock-webserver/zipball/f440b543e85edd1c4b64094b32ad70451d97a228",
+                "reference": "f440b543e85edd1c4b64094b32ad70451d97a228",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-sockets": "*",
+                "php": ">=5.4",
+                "ralouphie/getallheaders": "~2.0 || ~3.0"
+            },
+            "require-dev": {
+                "donatj/drop": "^1.0",
+                "phpunit/phpunit": "~4|~9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "donatj\\MockWebServer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jesse G. Donat",
+                    "email": "donatj@gmail.com",
+                    "homepage": "https://donatstudios.com",
+                    "role": "Lead"
+                }
+            ],
+            "description": "Simple mock web server for unit testing",
+            "support": {
+                "issues": "https://github.com/donatj/mock-webserver/issues",
+                "source": "https://github.com/donatj/mock-webserver/tree/v2.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://www.paypal.me/donatj/15",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/donatj",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-02T18:34:01+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1124,6 +1183,50 @@
                 }
             ],
             "time": "2021-03-23T07:16:29+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+                "reference": "120b605dfeb996808c31b6477290a714d356e822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^5 || ^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "support": {
+                "issues": "https://github.com/ralouphie/getallheaders/issues",
+                "source": "https://github.com/ralouphie/getallheaders/tree/develop"
+            },
+            "time": "2019-03-08T08:55:37+00:00"
         },
         {
             "name": "sebastian/cli-parser",

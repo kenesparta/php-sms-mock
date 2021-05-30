@@ -1,6 +1,13 @@
 Chicho challenge
 ================
 
+#### Prerequisites
+
+| Software          | Version | Importance |
+| ----------------- | ------- | ---------- |
+| 🐘 PHP            | 7.3.28  | Required   |
+| 🎼 PHP-Composer   | 2.0.14  | Required   |
+
 #### Use
 1. Fork this repository
 1. Run `composer install`
@@ -17,7 +24,9 @@ Chicho challenge
 #### Bonus
 - Q: Can you add support for two mobile carriers? How would you accomplish that? 
 - A: Yes, Creating a new class `TwilioCarrier` that implements the `CarrierInterface`.
-  
-
-- Create a new integration with an external service like Twilio to send and track an SMS.
+---
+- Q: Create a new integration with an external service like Twilio to send and track an SMS.
+- **A: I use a Twilio trial account with TESTING CREDENTIALS, to test this requires a number verify.**
+---
 - Create Unit Tests for this integration using a mock web server or similar.
+- **Rename ./conf/Configuration.example to ./conf/Configuration.php and set the new Twilio credentials**, [learn more](https://www.twilio.com/docs/iam/test-credentials#test-sms-messages)

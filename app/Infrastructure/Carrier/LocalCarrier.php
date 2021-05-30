@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Carrier;
+namespace App\Infrastructure\Carrier;
 
 
 use App\Contact;
@@ -15,11 +15,17 @@ use Exception;
 class LocalCarrier implements CarrierInterface
 {
     /**
+     * @var Contact
+     */
+    private $contact;
+
+    /**
      * @throws Exception
      */
     public function dialContact(Contact $contact)
     {
-        if (!ContactService::validateNumber($contact->number())) {
+        $this->contact = $contact;
+        if (!ContactService::validateNumber($this->contact->number())) {
             throw new DialException('The number does not correct');
         }
         // TODO: Implement other dialContact() logic.

@@ -2,11 +2,11 @@
 
 namespace Tests;
 
-use App\Call;
-use App\Carrier\LocalCarrier;
 use App\Contact;
 use App\Exceptions\EmptyNameException;
 use App\Exceptions\EmptyNumberException;
+use App\Infrastructure\Carrier\LocalCarrier;
+use App\Infrastructure\Carrier\TwilioCarrier;
 use App\Mobile;
 use App\Services\ContactService;
 use App\Sms;
@@ -16,7 +16,6 @@ use PHPUnit\Framework\TestCase;
 
 final class MobileTest extends TestCase
 {
-
     /** @test
      * @throws EmptyNameException
      */
@@ -44,19 +43,40 @@ final class MobileTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testFindByName()
+    public function testContactService()
     {
         $contactServiceMock = m::mock(ContactService::class);
         $contactServiceMock->shouldReceive('findByName')
             ->with('Henry')
-            ->andReturn(new Contact('1', 'Henry','+51999222777'));
+            ->andReturn(new Contact('1', 'Henry', '+51999222777'));
         $contactServiceMock->shouldReceive('findByNumber')
             ->with('+51999222777')
-            ->andReturn(new Contact('1', 'Henry','+51999222777'));
-        
+            ->andReturn(new Contact('1', 'Henry', '+51999222777'));
+        $contactServiceMock->shouldReceive('validateNumber')
+            ->with('+51999222777d')
+            ->andReturn(true);
+
         $contactServiceMock::findByName('Henry');
         $contactServiceMock::findByNumber('+51999222777');
-        
+        $contactServiceMock::validateNumber('+51999222777d');
+
         $this->assertNotNull($contactServiceMock);
     }
+
+    /**
+     * @throws EmptyNumberException
+     */
+    public function testSendSmsTwilioCarrier()
+    {
+        $body = 'Hello there!';
+
+        $provider = new TwilioCarrier();
+
+        $mobile = new Mobile($provider);
+
+        $this->assertEquals(
+            $mobile->sendSmsToNumber('+51950433380', new Sms($body))->body(), $body
+        );
+    }
+
 }
